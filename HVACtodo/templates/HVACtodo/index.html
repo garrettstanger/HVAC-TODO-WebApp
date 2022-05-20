@@ -1,0 +1,45 @@
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'HVACtodo/style.css' %}">
+<body>
+<fieldset style="width: fit-content; margin: 0 auto; font-size: 30px;">
+    <form action="list.html" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <legend>Provide Status</legend>
+        <label>Task<br />
+        <input type="text" name="task" id="task"/></label><br />
+        <label>Name<br />
+        <input type="text" name="name" id="name"/></label><br>
+        <input type="submit" value="Submit">
+    </form>
+</fieldset>
+<h1>Projects</h1>
+    
+</body>
+{% endblock %}
+
+
+{% comment %} <form method="POST" action="list.html">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form> {% endcomment %}
+
+
+
+{% comment %} {% if tasks %}
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task.name }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <strong>There are no tasks</strong>
+    {% endif %} {% endcomment %}
+
+    {% comment %} <form action="status.html" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form> {% endcomment %}
