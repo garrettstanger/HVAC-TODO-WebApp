@@ -1,9 +1,11 @@
 {% block content %}
+{% comment %} Has to load static to contact the style.css file {% endcomment %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'HVACtodo/style.css' %}">
 <body>
 <fieldset style="width: fit-content; margin: 0 auto; font-size: 30px;">
     <form action="list.html" method="POST">
+        {% comment %} has to include csrf token for form to work {% endcomment %}
         {% csrf_token %}
         {{ form.as_p }}
         <legend>Provide Status</legend>
